@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+</head>
+<body>
+<!-- Write the title of the page and the subtitle asking for an input -->
+  <h1>Temperature Converter</h1>
+  <p>Enter temperature in degrees Celsius:</p>
+
+  <input type="number" id="celsius" name="celsius">
+  <button onclick="convert()">Click to convert to Fahrenheit</button>
+  <p id="result"></p>
+<!-- JavaScript function -->
+  <script>
+    // declare the function
+    function convert() {
+      var degCent = parseFloat(document.getElementById("celsius").value);
+      var degFahren = (9 / 5) * degCent + 32;
+      document.getElementById("result").textContent = degCent + " degrees Celsius is equal to "
+       + degFahren + " degrees Fahrenheit.";  
+    }
+  </script>
+
+</body>
+</html>
