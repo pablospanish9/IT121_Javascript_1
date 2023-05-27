@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles for the container */
+    #container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: yellow;
+    }
+    
+    /* CSS styles for the animated element */
+    #animate {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Heading -->
+<h2>My First JavaScript Animation</h2>
+
+<!-- Container for the yellow square and animated element -->
+<div id="container">
+  <div id="animate"></div>
+</div>
+
+<script>
+  // JavaScript function for animating the element
+  function myMove() {
+    let id = null;  // Variable to store the animation interval ID
+    const elem = document.getElementById("animate");  // Reference to the animated element
+    let pos = 0;  // Variable to track the current position of the animated element
+
+    clearInterval(id);  // Clear any existing animation interval
+
+    // Start a new animation interval with a callback function "frame"
+    id = setInterval(frame, 5);
+
+    function frame() {
+      if (pos == 350) {
+        clearInterval(id);  // Stop the animation when the element reaches the desired position
+      } else {
+        pos++;  // Increment the position
+        elem.style.top = pos + 'px';  // Update the top position of the element
+        elem.style.left = pos + 'px';  // Update the left position of the element
+      }
+    }
+  }
+
+  // Call the function to start the animation
+  myMove();
+</script>
+
+</body>
+</html>

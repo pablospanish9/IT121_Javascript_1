@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend List</title>
+</head>
+<body>
+  <h1>Week_3 Assignment_1</h1>
+  <h2>Create an object using .js const</h2>  
+  <script>
+// Create an object named people
+//  that contains an empty array that is called friends.
+    const people = {friends: []};
+
+// Create three variables, each containing an object,
+//  that contains one of your friend's first names, last names, and an ID value.
+    const bestFriend = {
+      firstName: "Pedro",
+      lastName: "Carriles",
+      id: 15
+    };
+
+    const aquaintance = {
+      firstName: "Alicia",
+      lastName: "Foremis",
+      id: 4
+    };
+
+    const coworker = {
+      firstName: "Michael",
+      lastName: "Cudinos",
+      id: 29
+    };
+
+    // Add the 3 friends to the 'friends'empty array
+    people.friends.push(bestFriend);
+    people.friends.push(aquaintance);
+    people.friends.push(coworker);
+
+    // Output the people object to the console
+    console.log(people);
+
+//     // Here is code from classmate:
+//     const people = {friends:[]};
+
+// const friend1 = {first: "Max", last: "Moore", id: 1232};
+// const friend2 = {first: "Max", last: "Moore", id: 1233};
+// const friend3 = {first: "Max", last: "Moore", id: 1234};
+// const friend4 = {first: "Max", last: "Moore", id: 1235};
+// She pushed all variables at the same time
+// people.friends.push(friend1, friend2, friend3, friend4);
+// console.log(people);
+
+  </script>
+</body>
+</html>

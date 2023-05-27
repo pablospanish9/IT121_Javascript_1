@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>One Year</title>
+  <!-- Add a bit of color to the page, so that it is not so boring -->
+  <style>
+    body {
+      background-color: beige;
+      font-family: Calibri, sans-serif;
+      font-size: 1.4em;
+      margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Week_3 Assignment_2</h1>
+  <h2>Calculate the dateOne year from now</h2>
+
+  <script>
+// Get the current date by creating a new Date object
+// and asssign it to a variable. The "new" keyword gives us properties to work with.
+// the object represents the current date and time
+    var todayDay = new Date();
+
+    // increment the year of the todayDay object by 1
+    // todayDay.getFullYear() retrieves the current year from the todayDay object.
+    // Calculate the future date by adding 1 to the current year method,
+    // which gives a 4 digit number, and add 1 to get next year number.
+todayDay.setFullYear(todayDay.getFullYear() + 1);
+
+// Format the future date as a string using toDateString() method, which returns
+// a readable string from the date object. Assign this string to new var named oneYear:
+    var oneYear = todayDay.toDateString();
+
+// Write the calculated date to the page
+    document.write("1 year from now, it will be " + oneYear);
+
+  </script>
+</body>
+</html>
