@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recursive Functions</title>
+  <script>
+    // The program defines a function called 'counter' which takes an integer argument 'i'.
+    // It recursively calls itself with 'i + 1' until 'i' is equal to or greater than 10.
+    // When 'i' is less than 10, it logs the current value of 'i' to the console.
+    const counter = (i) => {
+      console.log(i);
+      if (i < 10) {
+        return counter(i + 1);
+      }
+      return;
+    };
+    
+    // The main function, when called with the initial value of 0, invokes the 'counter' function.
+    // the numbers from 0 to 9 are logged to the console.
+    const main = () => {
+      counter(0);
+    };
+    
+    // Define four additional functions: one, two, three, and four.
+    const one = () => console.log('one');
+    const two = () => console.log('two');
+    
+    // When the 'three' function is called, it logs the string 'three' to the console
+    // and then calls the functions 'one' and 'two'.
+    const three = () => {
+      console.log('three');
+      one();
+      two();
+    };
+    
+    // When the 'four' function is called, it logs the string 'four' to the console
+    // and then schedules the execution of the function 'one' using setTimeout() with a delay of 0 milliseconds.
+    // It then calls the 'three' function.
+    const four = () => {
+      console.log('four');
+      setTimeout(one, 0);
+      three();
+    };
+    
+    // Invoke the 'main' function to start the recursive counting process.
+    main();
+    
+    // Call the 'four' function which logs 'four' to the console,
+    // schedules the execution of 'one' using setTimeout() with a delay of 0 milliseconds,
+    // and calls the 'three' function.
+    four();
+  </script>
+</head>
+<body>
+  <h1>Recursive Functions</h1>
+</body>
+</html>
