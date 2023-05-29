@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flags</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow" />
+
+    <style>
+    /* add a bit of color to the background */
+      body {
+    background-color: rgb(219, 221, 224);
+    /* margin-left: 50px; */
+    font-family: Verdana, Sans-serif;
+  }
+
+/* Add a bit of shadow to the flags */
+ img {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Add 5px black shadow to all images */
+      }
+</style>
+
+  </head>
+  <body>
+    <div class="wrapper"> 
+      <div align="center">
+   
+          <h2><br><br>
+            Week 7 Assignment </h2>
+          <h3>Display Random Images using .html</h3><br>
+      
+        
+        <!-- Images of flags -->
+        <!-- Pics change when clicked -->
+        <!-- Specifies the JavaScript function changeImg(event) to be executed 
+        when the image is clicked. It passes the event object as an argument to the function. -->
+        <img src="images/chile.JPG" alt="Flag of chile" onclick="changeImg(event)" />
+        <img src="images/comoros.JPG" alt="Flag of Comoros" onclick="changeImg(event)" />
+        <!-- button element that creates a clickable button. -->
+        <button onclick="resetTable()">Reset</button>
+        
+        <script>
+          // Page loads code and pictures not visible to the user.
+          // Add an Event listener to the window object for the 'load' event. 
+          // The 'load' event is triggered when the web page finishes loading.
+          window.addEventListener('load', function() {
+            var images = ["images/chile.JPG", "images/comoros.JPG", "images/Ethiopia.JPG", "images/finland.JPG", 
+                       "images/lithuania.JPG", "images/armenia.JPG", "images/mozambique.JPG"];
+            var imgs = document.querySelectorAll('img');
+            // forEach() method to iterate over each <img> element in the imgs collection. 
+            // It executes the provided callback function for each element.
+            imgs.forEach(function(img, index) {
+              var randomIndex = Math.floor(Math.random() * images.length);
+              img.src = images[randomIndex];
+            });
+          });
+          // This function is called when one of the flag images is clicked.
+          function changeImg(event) {
+            var images = ["images/chile.JPG", "images/comoros.JPG", "images/Ethiopia.JPG", 
+               "images/finland.JPG", "images/armenia.JPG","images/lithuania.JPG", "images/mozambique.JPG"];
+            var randomIndex = Math.floor(Math.random() * images.length);
+            // This line updates the src attribute of the clicked image element.
+            event.target.src = images[randomIndex];
+          }
+          // This function is called when the "Reset" button is clicked.
+          function resetTable() {
+            // This line selects all the <img> elements in the document and assigns them to the imgs variable. 
+            var imgs = document.querySelectorAll('img');
+            imgs[0].src = 'images/chile.JPG'; // set the first image to 'chile' after reset
+            imgs[1].src = 'images/finland.JPG'; // set the second image to 'finland' after reset
+          }
+        </script>
+        
+
+      </div> 
+    </div>
+    <!-- wrapper -->
+  </body>
+</html>
