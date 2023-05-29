@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication Table</title>
+  <style>
+        body {
+      background-color: rgb(216, 220, 238);
+      margin-left: 50px;
+      font-family: Verdana, Sans-serif;
+    }
+    /* CSS styles for the table */
+    table {
+      border-collapse: collapse;
+      /* width: 100%; */
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+      background-color: #ddb4f7;
+      width: 40px;
+    }
+    
+  </style>
+</head>
+<body>
+    <h1>Week_5 - Assignment_1</h1>
+    <h2>Math multiplication table Using Array Loops.js</h2> 
+    <h2>Multiplication Table</h2>
+    <!-- <p>:</p> -->
+    <!-- The following is script borrowed from classmate Marcus -->
+    <table>
+        <script>
+          /* Loop to generate the multiplication table */
+          for (var x = 1; x <= 10; x++) {
+            document.write("<tr>"); // Start a new table row
+    
+            /* Loop to generate the columns within each row */
+            for (var y = 1; y <= 10; y++) {
+              document.write("<td>" + (x * y) + "</td>"); // Generate a table cell with the multiplication result (x * y)
+            }
+            
+            document.write("</tr>"); // End the current table row
+          }  
+        </script>
+      </table>
+      <h1>Week_5 - Assignment_2</h1>
+      <h2>Nested for Loops.html</h2> 
+      <h2>12 Table</h2>
+      <script>
+        // Generate the 12 times table using document.write()
+        for (var x = 1; x <= 12; x++) {
+          var result = 12 * x;
+          document.write("12 * " + x + " = " + result + "<br>");
+        }
+      </script>
+</body>
+</html>

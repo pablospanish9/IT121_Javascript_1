@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Tracker</title>
+</head>
+<body>
+  <h1>Payment Tracker</h1>
+  <div id="entries"></div>
+  <h2>Running Total:</h2>
+  <div id="runningTotal"></div>
+  
+  <h3>Pablo pays Claudia:</h3>
+  <input type="number" id="pabloToClaudiaInput">
+  <button onclick="addPayment('Pablo', 'Claudia')">Add Payment</button>
+
+  <h3>Claudia pays Pablo:</h3>
+  <input type="number" id="claudiaToPabloInput">
+  <button onclick="addPayment('Claudia', 'Pablo')">Add Payment</button>
+
+  <script>
+    // Initialize the payment accumulator
+    let totalPayment = 0;
+
+    // Function to add a payment entry and update the total
+    function addPayment(payer, payee) {
+      const amountInput = payer === 'Pablo' ? document.getElementById('pabloToClaudiaInput') : document.getElementById('claudiaToPabloInput');
+      const amount = Number(amountInput.value);
+
+      if (isNaN(amount) || amount <= 0) {
+        alert('Please enter a valid positive number for the payment amount.');
+        return;
+      }
+      
+      // Create a new entry element
+      const entry = document.createElement('p');
+      entry.textContent = payer + ' pays ' + payee + ': ' + amount;
+      
+      // Add the entry to the entries div
+      const entriesDiv = document.getElementById('entries');
+      entriesDiv.appendChild(entry);
+      
+      // Update the totalPayment based on who pays whom
+      if (payer === 'Claudia') {
+        totalPayment -= amount; // Claudia pays Pablo
+      } else if (payer === 'Pablo') {
+        totalPayment += amount; // Pablo pays Claudia
+      }
+      
+      // Update the runningTotal div
+      const runningTotalDiv = document.getElementById('runningTotal');
+      runningTotalDiv.textContent = 'Total: ' + totalPayment;
+      
+      // Reset the input value
+      amountInput.value = '';
+    }
+  </script>
+</body>
+</html>
