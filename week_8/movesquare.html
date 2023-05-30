@@ -3,11 +3,18 @@
 <head>
   <style>
     /* CSS styles for the container */
+         body {
+      background-color: rgb(230, 227, 245);
+      margin-left: 150px;
+      font-family: Verdana, Sans-serif;
+    }
     #container {
       width: 400px;
       height: 400px;
       position: relative;
       background: yellow;
+      box-shadow: 0 0 20px rgba(30, 0, 0, 0.4); /* Add shadow to the element */
+
     }
     
     /* CSS styles for the animated element */
@@ -17,33 +24,56 @@
       position: absolute;
       background: red;
     }
+        /* CSS styles for the button */
+        button {
+      display: block;
+  
+      margin-top: 10px;
+      margin-left: 140px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 10px; /* Add border radius for rounded corners */
+    }
+
   </style>
 </head>
 <body>
 
 <!-- Heading -->
-<h2>My First JavaScript Animation</h2>
+<h2>Week_8 - Assignment</h2>
+<h3>HTML DOM Full Animation Using JavaScript</h3><br>
 
 <!-- Container for the yellow square and animated element -->
 <div id="container">
   <div id="animate"></div>
 </div>
 
+<!-- Button to trigger the animation -->
+<button onclick="myMove()">Click Me</button>
+
 <script>
-  // JavaScript function for animating the element
+  // JavaScript function for initiating the animation
   function myMove() {
     let id = null;  // Variable to store the animation interval ID
     const elem = document.getElementById("animate");  // Reference to the animated element
-    let pos = 0;  // Variable to track the current position of the animated element
+    let pos = 0;  // Variable to track the current position of the animated red square 
+                  // element as it moves
 
-    clearInterval(id);  // Clear any existing animation interval
+    // Clear any existing animation interval,
+    // before starting a new animation
+     clearInterval(id);  
 
     // Start a new animation interval with a callback function "frame"
-    id = setInterval(frame, 5);
+    // recurring timer that calls the frame function repeatedly every 7 milliseconds. 
+    id = setInterval(frame, 7);
 
     function frame() {
       if (pos == 350) {
-        clearInterval(id);  // Stop the animation when the element reaches the desired position
+        clearInterval(id);  // Stop the animation when the element reaches 350
+        // this 'else' keeps the animation going, the variable is incremented by 1px using:
       } else {
         pos++;  // Increment the position
         elem.style.top = pos + 'px';  // Update the top position of the element
@@ -51,9 +81,6 @@
       }
     }
   }
-
-  // Call the function to start the animation
-  myMove();
 </script>
 
 </body>
