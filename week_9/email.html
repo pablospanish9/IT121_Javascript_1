@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>   
+    <title>Complete JavaScript Course</title>
+<style>
+
+#inputArea, #outputArea {
+  width: 350px;
+  height: 250px;
+  margin-top: 20px;
+  margin-right: 5px;
+  box-shadow: 0 0 20px rgba(30, 0, 0, 0.4); /* Add shadow to the element */
+  /* margin-left: 10px; */
+}
+body {
+      background-color: rgb(214, 207, 207);
+      margin-left: 150px;
+      font-family: Verdana, Sans-serif;
+    }
+    /* CSS styles for the button */
+        button {
+      /* display: block; */
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: rgb(99, 139, 90);
+      color: white;
+      border: none;
+      border-radius: 10px; /* Add border radius for rounded corners */
+    }
+
+</style>
+</head>
+<h1>Week_9 - Assignment</h1>
+<h2>Email Extractor</h2>
+<body>   
+    <textarea id="inputArea" name="txtarea" rows="2" cols="50"></textarea>
+    <!-- clickable button labeled "Get Emails". When the user clicks this button, 
+    it will trigger a JavaScript function that extracts email -->
+    <button id="extractButton">Get Emails</button>
+    <textarea id="outputArea" name="txtarea2" rows="2" cols="50"></textarea>
+
+    <script>
+
+        // Select the first textarea element with the name attribute set to 'txtarea' and store it in the variable 'firstArea'.
+        var firstArea = document.querySelector('textarea[name="txtarea"]');
+
+        // Select the second textarea element with the name attribute set to 'txtarea2' and store it in the variable 'secArea'.
+        var secArea = document.querySelector('textarea[name="txtarea2"]');
+
+        // Find the button element in the document and attach a click event listener to it, calling the 'lookUp' function when clicked.
+        var button = document.querySelector('button');
+        button.addEventListener('click', lookUp);
+
+        // Declare a function named 'lookUp'. 
+        function lookUp() {
+            // Get the value of the 'firstArea' text area and store it in the 'rawTxt' variable.
+            // firstArea is a variable that holds a reference to the <textarea> element
+            // .value is a property of the <textarea> element, to access the current value entered or set in the textarea.
+            // firstArea.value retrieves the current value entered or set in the firstArea textarea element.
+            // The retrieved value is then assigned to the variable rawTxt
+            var rawTxt = firstArea.value;
+
+            // Use a regular expression to match and extract email addresses from the 'rawTxt' string,
+            // and store them in a variable called 'eData'. rawTxt is a variable that holds the text
+            //  content retrieved from the firstArea textarea element, 
+            // .match() is a JavaScript string method used to search for a match between a regular expression and the given string.
+            var eData = rawTxt.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g);
+
+            // Create an empty array named 'holder' to store unique email addresses.
+            var holder = [];
+
+            // Iterate through each element in the 'eData' array.
+            eData.forEach(function(email) {
+                // Check if the current email address is not already present in the 'holder' array.
+                // This ensures that only unique email addresses are stored in the holder array.
+                if (!holder.includes(email)) {
+                    // Add the current email address to the 'holder' array.
+                    holder.push(email);
+                }
+            });
+
+            // Set the value of the 'secArea' text area to the joined string of unique email addresses.
+            secArea.value = holder.join('\n');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
