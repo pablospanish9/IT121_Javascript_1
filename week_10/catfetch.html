@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Facts Button</title>
+
+    <style>
+
+        
+        body {
+            background-color: rgb(215, 226, 241);
+      margin-top: 80px ;
+      margin-left: 150px;
+      font-family: Verdana, Sans-serif;
+      font-size: 18px; /* Added font-size property */
+            }
+            /* CSS styles for the button */
+                button {
+              /* display: block; */
+              margin-top: 20px;
+              margin-left: 10px;
+              margin-right: 10px;
+              padding: 10px 20px;
+              font-size: 18px;
+              background-color: rgb(99, 139, 90);
+              color: white;
+              border: none;
+              border-radius: 10px; /* Add border radius for rounded corners */
+            }
+
+        
+        
+        </style>
+</head>
+
+<body>
+    <h1>Week_10 - Assignment</h1>
+    <h2>Fetch API- Creating UI</h2>
+    <!-- Insert a picture of a cat to make the website more engaging -->
+    <img src="catsmall.JPG" alt="A picture of a cat" 
+    style="width: 300px; height: auto; box-shadow: 10px 10px 10px grey"><br>
+    <!-- Button to retrieve a cat fact. This creates a button,
+    that when clicked, it calles the showCatFact function -->
+    <button onclick="showCatFact()">Get a Cat fact</button><br>
+    <p>Did you know?</p>
+
+    <!-- Empty paragraph element with the ID "catfact".
+         This is where the cat fact will be inserted later. -->
+    <p id="catfact"></p>
+
+    <script>
+        // Asynchronous (wait for a response) function to retrieve 
+        // a cat fact from the API
+        async function getCatFact() {
+            // API endpoint, a URL to get a random cat fact
+            const api_endpoint = "https://cat-fact.herokuapp.com/facts/random?amount=1";
+
+            // Sending a request to the API endpoint and waiting for the response
+            const response = await fetch(api_endpoint);
+
+            // Parsing the response to JSON format
+            const json_response = await response.json();
+
+            // Logging the JSON response to the console
+            console.log(json_response);
+
+            // Returning the parsed JSON response
+            return json_response;
+        }
+
+        // Asynchronous function to display the cat fact on the webpage
+        async function showCatFact() {
+            // Retrieving the cat fact using the getCatFact() function
+            const catFactResponse = await getCatFact();
+
+            // Accessing the paragraph element by its ID, defined in HTML
+            const paragraphTag = document.getElementById("catfact");
+
+            // Setting the inner text of the paragraph element to the cat fact, 
+            // .text is accessing the text property of the catFactResponse object.
+            paragraphTag.innerText = catFactResponse.text;
+        }
+    </script>
+</body>
+
+</html>
